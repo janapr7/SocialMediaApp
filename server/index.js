@@ -14,12 +14,11 @@ app.use(express.json());
 
 //#region API ROUTES
 // Import routes
-// const { userRouter } = require("./routers")
+const { userRouter, postRouter } = require("./routers")
 
 // Add routes
-// app.use('/api/users', userRouter)
-
-
+app.use('/api/users', userRouter)
+app.use('/api/posts', postRouter)
 
 app.use((req, res, next) => {
   if (req.path.includes("/api/")) {
@@ -57,7 +56,7 @@ app.listen(PORT, (err) => {
   if (err) {
     console.log(`ERROR: ${err}`);
   } else {
-    // db.sequelize.sync({alter: true})
+    db.sequelize.sync({alter: true})
     console.log(`APP RUNNING at ${PORT} ✅`);
   }
 });
