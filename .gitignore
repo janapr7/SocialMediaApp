@@ -1,3 +1,5 @@
 /client/.env
 /server/.env
 /server/node_modules
+/server/public/media/post/*
+/server/public/media/profile/*
